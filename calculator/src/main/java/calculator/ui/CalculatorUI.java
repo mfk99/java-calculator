@@ -52,13 +52,12 @@ public class CalculatorUI extends Application {
     return button;
   }
 
-  // TODO: Add exception to not add spaces around .
-  // TODO: Change +/. to π
+  // TODO: Add exception to not add spaces around . and π
 
   private void createOperatorButtons(GridPane buttonGrid, TextField field) {
     String[] operators = { "*", "/", "-", "+" };
-    String[] topRowOperators = { "^", "√", "C" };
-    String[] bottomRowOperators = { "+/-", ".", "=" };
+    String[] topRowOperators = { "^", "²√", "C" };
+    String[] bottomRowOperators = { "π", ".", "=" };
 
     int x = 0;
     for (String operator : operators) {
@@ -78,7 +77,7 @@ public class CalculatorUI extends Application {
     for (String operator : bottomRowOperators) {
       Button operatorButton = createOperatorInputButton(operator, field);
       buttonGrid.add(operatorButton, y, 4);
-      if (operator.equals("+/-")) {
+      if (operator.equals("π")) {
         y++;
       }
       y++;

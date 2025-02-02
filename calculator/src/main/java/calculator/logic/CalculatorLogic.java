@@ -33,7 +33,7 @@ public class CalculatorLogic {
         return division.operate(a, b);
       case "^":
         return exponent.operate(a, b);
-      case "√":
+      case "²√":
         if (a < 0)
           throw new ArithmeticException("Cannot take square root of a negative number");
         return squareRoot.operate(a, b);
