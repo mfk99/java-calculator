@@ -50,3 +50,4 @@ TODO: Create documentation and instructions
 ## Time used
 
 - General setup: 1,5h
+- Development: 5h
