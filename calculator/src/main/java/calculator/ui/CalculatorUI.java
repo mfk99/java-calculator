@@ -1,5 +1,6 @@
 package calculator.ui;
 
+import calculator.controller.CalculatorController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -52,7 +53,6 @@ public class CalculatorUI extends Application {
   }
 
   private void createOperatorButtons(GridPane buttonGrid, TextField field) {
-
     String[] operators = { "*", "/", "-", "+" };
     String[] topRowOperators = { "^", "√", "C" };
     String[] bottomRowOperators = { "+/-", ".", "=" };
@@ -86,7 +86,7 @@ public class CalculatorUI extends Application {
   private Button createOperatorInputButton(String label, TextField field) {
     Button button = new Button(label);
     button.setMinSize(50, 50);
-    button.setOnAction(event -> field.appendText(" " + label + " "));
+    button.setOnAction(event -> CalculatorController.handleOperator(field, label));
     return button;
   }
 
