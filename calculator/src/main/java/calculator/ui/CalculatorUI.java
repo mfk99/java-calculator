@@ -12,40 +12,81 @@ public class CalculatorUI extends Application {
   @Override
   public void start(Stage primaryStage) {
 
-    String[][] buttonLayout = {
-        { "^", "√", "C", "*" },
-        { "1", "2", "3", "/" },
-        { "4", "5", "6", "-" },
-        { "7", "8", "9", "+" },
-        { "+/-", "0", ".", "=" }
-    };
     GridPane root = new GridPane();
 
     TextField field = new TextField();
     field.setMinSize(200, 50);
     root.add(field, 0, 0, 4, 1);
 
-    GridPane buttonGrid = new GridPane();
-    for (int row = 0; row < buttonLayout.length; row++) {
-      for (int col = 0; col < buttonLayout[row].length; col++) {
-        String label = buttonLayout[row][col];
-        Button btn = createButton(label);
-        btn.setMinSize(50, 50); // Set button size
-        buttonGrid.add(btn, col, row); // Add to GridPane at (col, row)
-      }
-    }
+    GridPane buttonGrid = createButtonGrid(field);
     root.add(buttonGrid, 0, 1, 4, 4);
-
     Scene scene = new Scene(root, 200, 300);
-
     primaryStage.setTitle("Java Calculator");
     primaryStage.setScene(scene);
     primaryStage.show();
   }
 
-  private Button createButton(String label) {
+  private GridPane createButtonGrid(TextField field) {
+    GridPane buttonGrid = new GridPane();
+    createIntegerButtons(buttonGrid, field);
+    createOperatorButtons(buttonGrid, field);
+    return buttonGrid;
+  }
+
+  private void createIntegerButtons(GridPane buttonGrid, TextField field) {
+    for (int i = 0; i < 9; i++) {
+      int x = i % 3;
+      int y = i / 3;
+      Button btn = createIntegerInputButton(i + 1, field);
+      buttonGrid.add(btn, x, y + 1);
+    }
+    Button zeroButton = createIntegerInputButton(0, field);
+    buttonGrid.add(zeroButton, 1, 4);
+  }
+
+  private Button createIntegerInputButton(int num, TextField field) {
+    Button button = new Button(Integer.toString(num));
+    button.setMinSize(50, 50);
+    button.setOnAction(event -> field.appendText(Integer.toString(num)));
+    return button;
+  }
+
+  private void createOperatorButtons(GridPane buttonGrid, TextField field) {
+
+    String[] operators = { "*", "/", "-", "+" };
+    String[] topRowOperators = { "^", "√", "C" };
+    String[] bottomRowOperators = { "+/-", ".", "=" };
+
+    int x = 0;
+    for (String operator : operators) {
+      Button operatorButton = createOperatorInputButton(operator, field);
+      buttonGrid.add(operatorButton, 3, x);
+      x++;
+    }
+
+    int y = 0;
+    for (String operator : topRowOperators) {
+      Button operatorButton = createOperatorInputButton(operator, field);
+      buttonGrid.add(operatorButton, y, 0);
+      y++;
+    }
+
+    y = 0;
+    for (String operator : bottomRowOperators) {
+      Button operatorButton = createOperatorInputButton(operator, field);
+      buttonGrid.add(operatorButton, y, 4);
+      if (operator.equals("+/-")) {
+        y++;
+      }
+      y++;
+    }
+
+  }
+
+  private Button createOperatorInputButton(String label, TextField field) {
     Button button = new Button(label);
-    button.setOnAction(event -> System.out.println(label));
+    button.setMinSize(50, 50);
+    button.setOnAction(event -> field.appendText(" " + label + " "));
     return button;
   }
 
