@@ -28,10 +28,14 @@ public class CalculatorLogic {
       case "*":
         return multiplication.operate(a, b);
       case "/":
+        if (b == 0)
+          throw new ArithmeticException("Cannot divide by zero");
         return division.operate(a, b);
       case "^":
         return exponent.operate(a, b);
-      case "sqrt":
+      case "√":
+        if (a < 0)
+          throw new ArithmeticException("Cannot take square root of a negative number");
         return squareRoot.operate(a, b);
       default:
         throw new IllegalArgumentException("Invalid operator");

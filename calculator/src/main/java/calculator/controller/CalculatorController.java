@@ -13,13 +13,16 @@ public class CalculatorController {
     if (operator.equals("C")) {
       field.clear();
     } else if (operator.equals("=")) {
-      System.out.println("= pressed");
-      String expression = field.getText();
-      Parser parser = new Parser(expression);
-      String parsedOperator = parser.parseOperator();
-      Double[] parsedOperands = parser.parseOperand();
-      double result = CalculatorLogic.calculate(parsedOperands[0], parsedOperands[1], parsedOperator);
-      field.setText(String.valueOf(result));
+      try {
+        String expression = field.getText();
+        Parser parser = new Parser(expression);
+        String parsedOperator = parser.parseOperator();
+        Double[] parsedOperands = parser.parseOperand();
+        double result = CalculatorLogic.calculate(parsedOperands[0], parsedOperands[1], parsedOperator);
+        field.setText(String.valueOf(result));
+      } catch (IllegalArgumentException | ArithmeticException e) {
+        field.setText("Error: " + e.getMessage());
+      }
     } else {
       field.appendText(" " + operator + " ");
     }
