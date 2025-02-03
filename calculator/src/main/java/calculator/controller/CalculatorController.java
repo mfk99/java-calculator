@@ -9,9 +9,13 @@ public class CalculatorController {
   public CalculatorController() {
   }
 
-  public static void handleOperator(TextField field, String operator) {
+  public static void handleOperatorInput(TextField field, String operator) {
     if (operator.equals("C")) {
       field.clear();
+    } else if (operator.equals("²√")) {
+      String expression = field.getText();
+      expression = "²√ " + expression;
+      field.setText(expression);
     } else if (operator.equals("=")) {
       try {
         String expression = field.getText();
@@ -19,12 +23,25 @@ public class CalculatorController {
         String parsedOperator = parser.parseOperator();
         Double[] parsedOperands = parser.parseOperand();
         double result = CalculatorLogic.calculate(parsedOperands[0], parsedOperands[1], parsedOperator);
-        field.setText(String.valueOf(result));
+        formatAndInsertResult(result, field);
       } catch (IllegalArgumentException | ArithmeticException e) {
         field.setText("Error: " + e.getMessage());
       }
     } else {
       field.appendText(" " + operator + " ");
     }
+  }
+
+  public static void handleSymbolInput(TextField field, String symbol) {
+    field.appendText(symbol);
+  }
+
+  public static void formatAndInsertResult(double result, TextField field) {
+    boolean roundable = result == Math.floor(result);
+    if (roundable) {
+      field.setText(String.valueOf((int) result));
+      return;
+    }
+    field.setText(String.valueOf(result));
   }
 }

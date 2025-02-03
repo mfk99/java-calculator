@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+// TODO:Refactor into multiple classes
+
 public class CalculatorUI extends Application {
 
   @Override
@@ -57,7 +59,8 @@ public class CalculatorUI extends Application {
   private void createOperatorButtons(GridPane buttonGrid, TextField field) {
     String[] operators = { "*", "/", "-", "+" };
     String[] topRowOperators = { "^", "²√", "C" };
-    String[] bottomRowOperators = { "π", ".", "=" };
+    String[] bottomRowOperators = { "π", "." };
+    String equals = "=";
 
     int x = 0;
     for (String operator : operators) {
@@ -75,7 +78,7 @@ public class CalculatorUI extends Application {
 
     y = 0;
     for (String operator : bottomRowOperators) {
-      Button operatorButton = createOperatorInputButton(operator, field);
+      Button operatorButton = createSymbolInputButton(operator, field);
       buttonGrid.add(operatorButton, y, 4);
       if (operator.equals("π")) {
         y++;
@@ -83,12 +86,22 @@ public class CalculatorUI extends Application {
       y++;
     }
 
+    Button equalsButton = createOperatorInputButton(equals, field);
+    buttonGrid.add(equalsButton, 3, 4);
+
   }
 
   private Button createOperatorInputButton(String label, TextField field) {
     Button button = new Button(label);
     button.setMinSize(50, 50);
-    button.setOnAction(event -> CalculatorController.handleOperator(field, label));
+    button.setOnAction(event -> CalculatorController.handleOperatorInput(field, label));
+    return button;
+  }
+
+  private Button createSymbolInputButton(String label, TextField field) {
+    Button button = new Button(label);
+    button.setMinSize(50, 50);
+    button.setOnAction(event -> CalculatorController.handleSymbolInput(field, label));
     return button;
   }
 

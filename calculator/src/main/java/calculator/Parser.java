@@ -5,6 +5,10 @@ public class Parser {
   private String expression;
 
   public Parser(String expression) {
+    expression = expression.strip();
+    while (expression.contains("  ")) {
+      expression = expression.replace("  ", " ");
+    }
     this.expression = expression;
   }
 
@@ -31,7 +35,6 @@ public class Parser {
   public Double[] parseOperand() {
     try {
       String[] parts = expression.split(" ");
-      // TODO: Fix this
       if (expression.contains("²√")) {
         if (parts.length != 2)
           throw new IllegalArgumentException("Square root requires exactly one operand.");
