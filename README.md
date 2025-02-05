@@ -68,7 +68,15 @@ classDiagram
     Exponent --|> Operation
     SquareRoot --|> Operation
 ```
-## Requirements
+
+Additionally, a file diagram to represent the file herarchy.
+(This diagram is also available as a .graphml-file).
+
+![An image representing the file hierarchy](assets/file-diagram.png)
+
+## Technologies
+
+The project has been built with the following technologies:
 
 - Apache Maven 3.9.9
 - Java 23.0.2
