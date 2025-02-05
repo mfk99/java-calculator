@@ -42,12 +42,21 @@ TODO: Create E-2-E and unit tests, add codecov
 ### Documentation
 
 The project uses Javadoc to produce documentation.
+Javadoc is integrated into Maven, so to generate the report, use 
+
+```mvn javadoc:javadoc```
+
+This will create the documentation into the `target/site/apidocs` folder. 
+Drag the `index.html` to your browser of choice to view the documentation.
+This opens up a view which looks like the following:
+![An image of the Javadoc view](assets/javadoc.png)
 
 <!---
-TODO: Create documentation and instructions
+TODO: Configure javadoc to create to seperate folder
 --->
 
 ## Time used
 
 - General setup: 1,5h
 - Development: 11h
+- Documentation: 2h
