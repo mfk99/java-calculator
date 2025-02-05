@@ -21,6 +21,9 @@ public class SquareRoot extends Operation {
    */
   @Override
   public double operate(double a, double b) {
+    if (a < 0.0) {
+      throw new ArithmeticException("Cannot take square root of a negative number");
+    }
     a = Math.sqrt(a);
     return a;
   }
