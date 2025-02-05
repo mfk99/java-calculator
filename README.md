@@ -69,8 +69,8 @@ classDiagram
     SquareRoot --|> Operation
 ```
 
-Additionally, a file diagram to represent the file herarchy.
-(This diagram is also available as a .graphml-file).
+Additionally, there is a file diagram to represent the file herarchy.
+(This diagram is also available as a [.graphml-file](assets/java-calculator.graphml)).
 
 ![An image representing the file hierarchy](assets/file-diagram.png)
 
@@ -82,6 +82,8 @@ The project has been built with the following technologies:
 - Java 23.0.2
 
 Note: this project likely functions across multiple versions, but in case it doesn't, please use the versions specified above.
+If you want further information about the project's dependancies, run
+`mvn site` in the project directory. This will create the `target/site`-directory, where `index.html` contains further information about Maven dependancies.
 
 ## Instructions
 
@@ -103,13 +105,19 @@ And to run the project, use
 
 ### Testing
 
-To run the tests, use
+To only run the tests, use
 
 `mvn test`
 
-<!---
-TODO: Create E-2-E and unit tests, add codecov
---->
+This will run the tests using Junit and TestFX.
+To both run the tests and generate reports, run 
+
+`mvn site`
+
+This will generate two test reports.
+1. **JaCoCo** To view the JaCoCo report, go to the `target/site/jacoco`-folder you'll find `index.html`, which will contain information on the test run, as well as test coverage and branch coverage. To view, the report, drag it to the browser of your choice.
+2. **Surefire** To view the surefire report, go to the `target/site`-folder you'll find `surefire-report.html`, which will contain information on the test run.
+
 
 ### Documentation
 
@@ -131,4 +139,6 @@ TODO: Configure javadoc to create to seperate folder
 
 - General setup: 1,5h
 - Development: 11h
-- Documentation: 2h
+- Documentation: 5h
+- Testing: 3,5h (Unit tests: 1,5h, E2E: 2h)
+- Total: 20h
