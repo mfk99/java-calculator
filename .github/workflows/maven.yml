@@ -12,8 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Check dir contents
+      run: ls
     - name: Navigate to project directory
       run: cd calculator
+    - name: Check dir contents
+      run: ls
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
