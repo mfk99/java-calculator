@@ -25,7 +25,8 @@ public class CalculatorController {
         double result = CalculatorLogic.calculate(parsedOperands[0], parsedOperands[1], parsedOperator);
         formatAndInsertResult(result, field);
       } catch (IllegalArgumentException | ArithmeticException e) {
-        field.setText("Error: " + e.getMessage());
+        System.out.println("Error: " + e.getMessage());
+        field.setText("ERR");
       }
     } else {
       field.appendText(" " + operator + " ");
