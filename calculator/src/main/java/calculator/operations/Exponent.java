@@ -6,6 +6,9 @@ package calculator.operations;
  */
 public class Exponent extends Operation {
 
+  /**
+   * The default constructor
+   */
   public Exponent() {
   }
 

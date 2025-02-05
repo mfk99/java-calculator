@@ -6,6 +6,9 @@ package calculator.operations;
  */
 public class Division extends Operation {
 
+  /**
+   * The default constructor
+   */
   public Division() {
   }
 

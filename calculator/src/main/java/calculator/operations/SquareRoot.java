@@ -6,6 +6,9 @@ package calculator.operations;
  */
 public class SquareRoot extends Operation {
 
+  /**
+   * The default constructor
+   */
   public SquareRoot() {
   }
 

@@ -6,6 +6,9 @@ package calculator.operations;
  */
 public class Subtraction extends Operation {
 
+  /**
+   * The default constructor
+   */
   public Subtraction() {
   }
 

@@ -10,7 +10,12 @@ import javafx.application.Application;
  * @author Matti Kähkönen
  */
 public class Main {
+    /**
+     * The main function, which launches the UI.
+     * 
+     * @param args the list of command line arguments
+     */
     public static void main(String[] args) {
-        Application.launch(CalculatorUI.class, args); // Launch JavaFX UI
+        Application.launch(CalculatorUI.class, args);
     }
 }

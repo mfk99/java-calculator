@@ -6,6 +6,9 @@ package calculator.operations;
  */
 public class Multiplication extends Operation {
 
+  /**
+   * The default constructor
+   */
   public Multiplication() {
   }
 
