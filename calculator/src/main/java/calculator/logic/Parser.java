@@ -1,4 +1,4 @@
-package calculator;
+package calculator.logic;
 
 /**
  * A class used to parse inputs of the calculator.

@@ -1,7 +1,5 @@
-package calculator.controller;
+package calculator.logic;
 
-import calculator.Parser;
-import calculator.logic.CalculatorLogic;
 import javafx.scene.control.TextField;
 
 /**
