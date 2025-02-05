@@ -18,6 +18,12 @@ import javafx.stage.Stage;
 public class CalculatorUI extends Application {
 
   /**
+   * The scene which is shown in the UI.
+   * Required for testFX.
+   */
+  private Scene scene;
+
+  /**
    * Starts the JavaFX UI.
    * 
    * @param primaryStage the primary stage for the application
@@ -33,9 +39,17 @@ public class CalculatorUI extends Application {
 
     GridPane buttonGrid = ButtonFactory.createButtonGrid(field);
     root.add(buttonGrid, 0, 1, 4, 4);
-    Scene scene = new Scene(root, 200, 300);
+    scene = new Scene(root, 200, 300);
     primaryStage.setTitle("Java Calculator");
     primaryStage.setScene(scene);
     primaryStage.show();
+  }
+
+  /**
+   * Returns the scene which is shown in the UI.
+   * Availability is required for testFX.
+   */
+  public Scene getScene() {
+    return scene;
   }
 }
