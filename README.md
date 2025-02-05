@@ -2,14 +2,78 @@
 
 ## Description
 
-This project is intended to use OOP to program a calculator with a simplistic UI.
+This project uses OOP to program a calculator with a GUI.
 
+A class diagram has been provided below:
+
+```mermaid
+classDiagram
+    class Main{
+        +main(String[] args)void
+    }
+
+    class CalculatorUI{
+        +start(Stage primaryStage)void
+    }
+
+    class ButtonFactory{
+        +createButtonGrid(TextField field)GridPane
+        -createSymbolInputButtons(GridPane buttonGrid, TextField field)void
+        -createOperatorInputButtons(GridPane buttonGrid, TextField field)void
+    }
+
+    class CalculatorController{
+        +handleOperatorInput(TextField field, String operator)void
+        +handleSymbolInput(TextField field, String symbol)void
+        +formatAndInsertResult(double result, TextField field)void
+    }
+
+    class Parser{
+        -String expression
+        +Parser(String expression)Parser
+        +parseOperator()String
+        +parseOperand()Double[]
+    }
+
+    class CalculatorLogic{
+        -Operation addition
+        -Operation subtraction
+        -Operation multiplication
+        -Operation division
+        -Operation exponent
+        -Operation squareRoot
+        +calculate(double a, double b, String operator)
+    }
+
+    class Operation{
+        +operate(double a, double b)double*
+    }
+    <<Abstract>> Operation
+
+    Main ..> CalculatorUI
+    CalculatorUI ..> ButtonFactory
+    ButtonFactory ..> CalculatorController
+    CalculatorController ..> CalculatorLogic
+    Parser <.. CalculatorController 
+    CalculatorLogic ..> Addition
+    CalculatorLogic ..> Subtraction
+    CalculatorLogic ..> Division
+    CalculatorLogic ..> Multiplication
+    CalculatorLogic ..> Exponent
+    CalculatorLogic ..> SquareRoot
+    Addition --|> Operation
+    Subtraction --|> Operation
+    Division --|> Operation
+    Multiplication --|> Operation
+    Exponent --|> Operation
+    SquareRoot --|> Operation
+```
 ## Requirements
 
 - Apache Maven 3.9.9
 - Java 23.0.2
 
-Note: this project likely functions across multiple versions, but in case it doesn't, use the versions specified above.
+Note: this project likely functions across multiple versions, but in case it doesn't, please use the versions specified above.
 
 ## Instructions
 
@@ -41,7 +105,7 @@ TODO: Create E-2-E and unit tests, add codecov
 
 ### Documentation
 
-The project uses Javadoc to produce documentation.
+The project uses Javadoc to produce code documentation.
 Javadoc is integrated into Maven, so to generate the report, use 
 
 ```mvn javadoc:javadoc```
