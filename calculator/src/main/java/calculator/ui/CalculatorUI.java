@@ -38,8 +38,4 @@ public class CalculatorUI extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
   }
-
-  public static void launchUI(String[] args) {
-    launch(args);
-  }
 }
