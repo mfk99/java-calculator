@@ -6,8 +6,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+/**
+ * A class for the calculator UI.
+ * 
+ * @see javafx.application.Application
+ * @see javafx.stage.Stage
+ * @see javafx.scene.Scene
+ * @see javafx.scene.layout.GridPane
+ * @see javafx.scene.control.TextField
+ */
 public class CalculatorUI extends Application {
 
+  /**
+   * Starts the JavaFX UI.
+   * 
+   * @param primaryStage the primary stage for the application
+   */
   @Override
   public void start(Stage primaryStage) {
 

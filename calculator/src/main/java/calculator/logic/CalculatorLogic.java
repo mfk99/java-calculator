@@ -8,6 +8,9 @@ import calculator.operations.Exponent;
 import calculator.operations.Multiplication;
 import calculator.operations.Subtraction;
 
+/**
+ * A class used to calculate the result of an expression.
+ */
 public class CalculatorLogic {
   private static Operation addition = new Addition();
   private static Operation subtraction = new Subtraction();
@@ -16,9 +19,21 @@ public class CalculatorLogic {
   private static Operation exponent = new Exponent();
   private static Operation squareRoot = new SquareRoot();
 
+  /**
+   * The default constructor method.
+   */
   public CalculatorLogic() {
   }
 
+  /**
+   * A method to calculate the result of an expression.
+   * Throws an exception if the operator is not supported or provided.
+   * 
+   * @param a        the first operand
+   * @param b        the second operand
+   * @param operator the operator
+   * @return the result of the expression
+   */
   public static double calculate(double a, double b, String operator) {
     switch (operator) {
       case "+":

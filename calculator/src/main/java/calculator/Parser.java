@@ -1,9 +1,21 @@
 package calculator;
 
+/**
+ * A class used to parse inputs of the calculator.
+ */
 public class Parser {
 
+  /**
+   * The expression to be parsed.
+   */
   private String expression;
 
+  /**
+   * The constructor method.
+   * Removes extra spaces from the expression.
+   * 
+   * @param expression the expression to be parsed
+   */
   public Parser(String expression) {
     expression = expression.strip();
     while (expression.contains("  ")) {
@@ -12,6 +24,11 @@ public class Parser {
     this.expression = expression;
   }
 
+  /**
+   * A method to parse the operator in the expression.
+   * 
+   * @return the operator in the expression
+   */
   public String parseOperator() {
     if (expression.isEmpty()) {
       throw new IllegalArgumentException("Empty expression");
@@ -32,6 +49,12 @@ public class Parser {
     throw new IllegalArgumentException("Invalid operator: " + expression);
   }
 
+  /**
+   * Attempts to parse the operands in the expression.
+   * Throws an exception if the length of the expression is invalid.
+   * 
+   * @return a list of operands in the expression
+   */
   public Double[] parseOperand() {
     try {
       String[] parts = expression.split(" ");

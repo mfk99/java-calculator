@@ -5,15 +5,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * A factory class for creating buttons for the calculator UI.
+ * 
+ * @see CalculatorUI
+ * @see CalculatorController
+ * @see TextField
+ * @see Button
+ * @see GridPane
+ * @see javafx.scene.layout.GridPane
+ * @see javafx.scene.control.TextField
+ * @see javafx.scene.control.Button
+ */
 public class ButtonFactory {
 
-  // String[][] buttonLayOut = {
-  // { "^", "²√", "C", "*" },
-  // { "1", "2", "3", "/" },
-  // { "4", "5", "6", "-" },
-  // { "7", "8", "9", "+" },
-  // { "π", "0", ".", "=" } };
-
+  /**
+   * Creates a grid of buttons for the calculator UI.
+   * 
+   * The complete button grid consists of the following buttons:
+   * [^, ²√, C, *]
+   * [1, 2, 3, /]
+   * [4, 5, 6, -]
+   * [7, 8, 9, +]
+   * [π, 0, ., =]
+   * 
+   * @param field The text field where the input is displayed
+   * @return a complete grid of buttons
+   */
   public static GridPane createButtonGrid(TextField field) {
     GridPane buttonGrid = new GridPane();
     createSymbolInputButtons(buttonGrid, field);
@@ -21,6 +39,12 @@ public class ButtonFactory {
     return buttonGrid;
   }
 
+  /**
+   * Creates the symbol input buttons for the calculator UI.
+   * 
+   * @param buttonGrid The grid where the buttons are added
+   * @param field      The text field where the input is displayed
+   */
   private static void createSymbolInputButtons(GridPane buttonGrid, TextField field) {
     String[][] symbolInputs = {
         { "1", "2", "3" },
@@ -38,6 +62,12 @@ public class ButtonFactory {
     }
   }
 
+  /**
+   * Creates the operator input buttons for the calculator UI.
+   * 
+   * @param buttonGrid The grid where the buttons are added
+   * @param field      The text field where the input is displayed
+   */
   private static void createOperatorInputButtons(GridPane buttonGrid, TextField field) {
     String[] basicArithmeticOperators = { "*", "/", "-", "+", "=" };
     String[] miscOperators = { "^", "²√", "C" };
