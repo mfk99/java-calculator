@@ -1,10 +1,14 @@
 # java-calculator
 
-## Description
-
 This project uses OOP to program a calculator with a GUI.
 
-A class diagram has been provided below:
+## Description
+
+The main goal of this project was to demonstrate how OOP can be used to create a simple application.
+Especial attention was paid to documentation and testing. 
+As this was a side project, many desired functionalities are missing, but the existing features are functional.
+
+A class diagram representing the project's architecture has been provided below:
 
 ```mermaid
 classDiagram
@@ -69,7 +73,7 @@ classDiagram
     SquareRoot --|> Operation
 ```
 
-Additionally, there is a file diagram to represent the file herarchy.
+A file diagram to represent the file herarchy.
 (This diagram is also available as a [.graphml-file](assets/java-calculator.graphml)).
 
 ![An image representing the file hierarchy](assets/file-diagram.png)
@@ -78,14 +82,28 @@ Additionally, there is a file diagram to represent the file herarchy.
 
 The project has been built with the following technologies:
 
-- Apache Maven 3.9.9
-- Java 23.0.2
+| Technology  | Utility | Version |
+| ----- | ----- | ----- |
+| Java  | Programming language  | 23.0.2 |
+| Apache Maven | Project management  | 3.9.9 |
+| Javadoc | Code documentation  | 3.6.2 |
+| Junit | Unit testing  | 5.11.0 |
+| TestFX | End-To-End testing  | 4.0.18 |
+| JaCoCo | Test Coverage Reporting  | 0.8.12 |
 
-Note: this project likely functions across multiple versions, but in case it doesn't, please use the versions specified above.
 If you want further information about the project's dependancies, run
 `mvn site` in the project directory. This will create the `target/site`-directory, where `index.html` contains further information about Maven dependancies.
 
 ## Instructions
+
+### Requirements
+
+This project only requires Java and Maven to function. 
+This project likely functions across multiple versions, but in case it doesn't, please use the [versions specified](#technologies).
+Git Bash is the easiest method of copying the project, but the source code can be downloaded without it.
+
+
+
 
 ### Running
 
@@ -99,13 +117,13 @@ To compile the project, use
 
 `mvn clean compile`
 
-And to run the project, use
+after which you can run the project using
 
 `mvn exec:java`
 
 ### Testing
 
-To only run the tests, use
+To run the tests, use
 
 `mvn test`
 
@@ -126,9 +144,16 @@ Drag the `index.html` to your browser of choice to view the documentation.
 This opens up a view which looks like the following:
 ![An image of the Javadoc view](assets/javadoc.png)
 
-<!---
-TODO: Configure javadoc to create to seperate folder
---->
+### Command cheat sheet
+
+| command  | What does it do? | 
+| ----- | ----- | 
+| `git clone https://github.com/mfk99/java-calculator`  | Clones the repository to your computer |
+| `mvn clean compile` |Compiles the project |
+| `mvn exec:java` | Runs the project |
+| `mvn test` | Runs the tests, generates test reports |
+| `mvn site` | Generates documentation |
+| `mvn javadoc:javadoc` | Generates javadoc documentation |
 
 ## Time used
 
