@@ -93,7 +93,7 @@ To clone the code from the repository, use the command
 
 `git clone https://github.com/mfk99/java-calculator`
 
-!Note: When running `mvn` commands, you must be in the `calculator`-directory, where e.g.`pom.xml` and `src` are located!
+Note: When running `mvn` commands, you must be in the project directory, where e.g.`pom.xml` and `src` are located!
 
 To compile the project, use
 
@@ -109,12 +109,7 @@ To only run the tests, use
 
 `mvn test`
 
-This will run the tests using Junit and TestFX.
-To both run the tests and generate reports, run 
-
-`mvn site`
-
-This will generate two test reports.
+This will run the tests using Junit and TestFX, additionally it  generates two test reports.
 1. **JaCoCo** To view the JaCoCo report, go to the `target/site/jacoco`-folder you'll find `index.html`, which will contain information on the test run, as well as test coverage and branch coverage. To view, the report, drag it to the browser of your choice.
 2. **Surefire** To view the surefire report, go to the `target/site`-folder you'll find `surefire-report.html`, which will contain information on the test run.
 
