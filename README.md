@@ -17,6 +17,7 @@ classDiagram
     }
 
     class CalculatorUI{
+        -Scene scene
         +start(Stage primaryStage)void
     }
 
